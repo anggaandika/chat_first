@@ -1,5 +1,6 @@
 import 'package:chat/models/message_model.dart';
 import 'package:chat/screens/chats_screen.dart';
+import 'package:chat/widget/photo_see.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -52,9 +53,18 @@ class RecentChats extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          CircleAvatar(
-                            radius: 35.0,
-                            backgroundImage: AssetImage(chat.sender.imageUrl),
+                          GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    PhotoSee(urlImage: chat.sender.imageUrl),
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              radius: 35.0,
+                              backgroundImage: AssetImage(chat.sender.imageUrl),
+                            ),
                           ),
                           const SizedBox(
                             width: 10.0,

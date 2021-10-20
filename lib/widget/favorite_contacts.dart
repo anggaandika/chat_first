@@ -1,5 +1,6 @@
 import 'package:chat/models/message_model.dart';
 import 'package:chat/screens/chats_screen.dart';
+import 'package:chat/widget/photo_see.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteContacts extends StatelessWidget {
@@ -53,10 +54,19 @@ class FavoriteContacts extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        CircleAvatar(
-                          radius: 35.0,
-                          backgroundImage:
-                              AssetImage(favorites[index].imageUrl),
+                        GestureDetector(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  PhotoSee(urlImage: favorites[index].imageUrl),
+                            ),
+                          ),
+                          child: CircleAvatar(
+                            radius: 35.0,
+                            backgroundImage:
+                                AssetImage(favorites[index].imageUrl),
+                          ),
                         ),
                         const SizedBox(
                           height: 6.0,
