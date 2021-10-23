@@ -2,16 +2,11 @@ import 'package:chat/models/message_model.dart';
 import 'package:chat/models/user_model.dart';
 import 'package:flutter/material.dart';
 
-class ChatsScreen extends StatefulWidget {
+class ChatsScreen extends StatelessWidget {
   final User user;
   const ChatsScreen({required this.user, Key? key}) : super(key: key);
 
-  @override
-  _ChatsScreenState createState() => _ChatsScreenState();
-}
-
-class _ChatsScreenState extends State<ChatsScreen> {
-  _buildMessage(Message message, bool isMe) {
+  _buildMessage(context, Message message, bool isMe) {
     final smg = Container(
       margin: isMe
           ? const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 80.0)
@@ -41,7 +36,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             style: const TextStyle(
               color: Colors.blueGrey,
               fontWeight: FontWeight.w600,
-              fontSize: 16.0,
+              fontSize: 10.0,
             ),
           ),
           const SizedBox(
@@ -52,7 +47,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             style: const TextStyle(
               color: Colors.blueGrey,
               fontWeight: FontWeight.w600,
-              fontSize: 16.0,
+              fontSize: 12.0,
             ),
           ),
         ],
@@ -71,18 +66,22 @@ class _ChatsScreenState extends State<ChatsScreen> {
               : const Icon(Icons.favorite_border),
           color: message.isLiked
               ? Theme.of(context).primaryColor
-              : Colors.blueGrey,
+              : Color(0xFFEED2C3),
           iconSize: 30.0,
         ),
       ],
     );
   }
 
-  _buildMessageComposer() {
+  _buildMessageComposer(context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      margin: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(20),
+      ),
       height: 45.0,
-      color: Colors.white,
       child: Row(
         children: <Widget>[
           IconButton(
@@ -117,7 +116,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          widget.user.name,
+          user.name,
           style: const TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -143,8 +142,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
                   ),
                 ),
                 child: ClipRRect(
@@ -160,13 +159,16 @@ class _ChatsScreenState extends State<ChatsScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       final Message message = messages[index];
                       final bool isMe = message.sender.id == currentUser.id;
-                      return _buildMessage(message, isMe);
+                      return _buildMessage(context, message, isMe);
                     },
                   ),
                 ),
               ),
             ),
-            _buildMessageComposer(),
+            Container(
+              color: Colors.white,
+              child: _buildMessageComposer(context),
+            ),
           ],
         ),
       ),

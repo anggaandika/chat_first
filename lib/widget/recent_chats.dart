@@ -14,15 +14,11 @@ class RecentChats extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+            topLeft: Radius.circular(-30),
+            topRight: Radius.circular(-30),
           ),
         ),
         child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
           child: ListView.builder(
             itemCount: chats.length,
             physics: const BouncingScrollPhysics(),
@@ -90,7 +86,7 @@ class RecentChats extends StatelessWidget {
                                   style: const TextStyle(
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 15.0,
+                                    fontSize: 12.0,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -106,7 +102,7 @@ class RecentChats extends StatelessWidget {
                             style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
-                              fontSize: 12.0,
+                              fontSize: 10.0,
                             ),
                           ),
                           const SizedBox(

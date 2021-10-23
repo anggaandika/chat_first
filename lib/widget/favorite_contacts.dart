@@ -8,8 +8,14 @@ class FavoriteContacts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(-30),
+          bottomRight: Radius.circular(-30),
+        ),
+      ),
       child: Column(
         children: [
           Padding(
@@ -21,7 +27,7 @@ class FavoriteContacts extends StatelessWidget {
                   "Favorite Contacts",
                   style: TextStyle(
                     color: Colors.blueGrey,
-                    fontSize: 18.0,
+                    fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.0,
                   ),
@@ -76,7 +82,7 @@ class FavoriteContacts extends StatelessWidget {
                           style: const TextStyle(
                             color: Colors.blueGrey,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16.0,
+                            fontSize: 14.5,
                           ),
                         ),
                       ],
