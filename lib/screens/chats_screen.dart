@@ -66,7 +66,7 @@ class ChatsScreen extends StatelessWidget {
               : const Icon(Icons.favorite_border),
           color: message.isLiked
               ? Theme.of(context).primaryColor
-              : Color(0xFFEED2C3),
+              : const Color(0xFFEED2C3),
           iconSize: 30.0,
         ),
       ],

@@ -1,7 +1,6 @@
 import 'package:chat/models/message_model.dart';
 import 'package:chat/screens/chats_screen.dart';
 import 'package:chat/widget/photo_see.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RecentChats extends StatelessWidget {
