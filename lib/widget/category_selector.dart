@@ -13,9 +13,9 @@ class _CategorySelectorState extends State<CategorySelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.brown,
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(30),
         ),
       ),

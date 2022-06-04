@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PhotoSee extends StatelessWidget {
-  final String urlImage;
-  const PhotoSee({required this.urlImage, Key? key}) : super(key: key);
+  final String urlImage, title;
+  const PhotoSee({
+    required this.urlImage,
+    required this.title,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +15,7 @@ class PhotoSee extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
+        title: Text(title),
         actions: <Widget>[
           IconButton(
             iconSize: 30.0,
@@ -23,7 +28,7 @@ class PhotoSee extends StatelessWidget {
       body: Center(
         child: Image.asset(
           urlImage,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
     );

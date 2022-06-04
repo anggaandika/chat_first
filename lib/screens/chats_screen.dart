@@ -90,10 +90,11 @@ class ChatsScreen extends StatelessWidget {
             iconSize: 25.0,
             color: Theme.of(context).primaryColor,
           ),
-          const Expanded(
+          Expanded(
             child: TextField(
               textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration.collapsed(
+                hintStyle: TextStyle(color: Theme.of(context).primaryColor),
                 hintText: 'Send a message....!!',
               ),
             ),

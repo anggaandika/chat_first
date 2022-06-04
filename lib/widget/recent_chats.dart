@@ -52,8 +52,10 @@ class RecentChats extends StatelessWidget {
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) =>
-                                    PhotoSee(urlImage: chat.sender.imageUrl),
+                                builder: (_) => PhotoSee(
+                                  urlImage: chat.sender.imageUrl,
+                                  title: chat.sender.name,
+                                ),
                               ),
                             ),
                             child: CircleAvatar(
@@ -69,8 +71,8 @@ class RecentChats extends StatelessWidget {
                             children: [
                               Text(
                                 chat.sender.name,
-                                style: const TextStyle(
-                                  color: Colors.grey,
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15.0,
                                 ),
